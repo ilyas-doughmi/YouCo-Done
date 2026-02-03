@@ -5,26 +5,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', "YouCo'Done") }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            brand: {
+                                500: '#FF4F18', /* Ton Orange Spécial */
+                                600: '#E03E0B',
+                                900: '#1a1a1a',
+                            },
+                            surface: '#FAFAFA'
+                        },
+                        fontFamily: {
+                            sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        }
+                    }
+                }
+            }
+        </script>
+        
+        <style>
+            body { font-family: 'Plus Jakarta Sans', sans-serif; }
+            /* Force l'orange sur les focus ring de Breeze si tu n'as pas changé les composants */
+            input:focus, button:focus {
+                --tw-ring-color: #FF4F18 !important;
+                border-color: #FF4F18 !important;
+            }
+        </style>
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
-        </div>
+    <body class="font-sans text-gray-900 antialiased bg-white">
+        {{ $slot }}
     </body>
 </html>
