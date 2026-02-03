@@ -66,10 +66,21 @@
                 </div>
 
                 <div class="flex items-center gap-4">
-                    <a href="/login" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Connexion</a>
-                    <a href="/register" class="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brand-500 transition shadow-lg shadow-gray-900/20 hover:shadow-brand-500/30">
-                        S'inscrire
-                    </a>
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                            <button type="submit" class="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brand-500 transition shadow-lg shadow-gray-900/20 hover:shadow-brand-500/30">
+                                Déconnexion
+                            </button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Connexion</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brand-500 transition shadow-lg shadow-gray-900/20 hover:shadow-brand-500/30">
+                                S'inscrire
+                            </a>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>
