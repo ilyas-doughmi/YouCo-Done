@@ -12,9 +12,9 @@
         
         <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Gestion</p>
 
-        <a href="{{ route('dashboard') }}" 
-           class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold transition-all group {{ request()->routeIs('dashboard') ? 'bg-brand-50 text-brand-600 shadow-sm' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }}">
-            <i class="{{ request()->routeIs('dashboard') ? 'ph-fill' : 'ph-bold' }} ph-squares-four text-xl"></i>
+        <a href="{{ route('restaurateur.dashboard') }}" 
+           class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold transition-all group {{ request()->routeIs('restaurateur.dashboard') ? 'bg-brand-50 text-brand-600 shadow-sm' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }}">
+            <i class="{{ request()->routeIs('restaurateur.dashboard') ? 'ph-fill' : 'ph-bold' }} ph-squares-four text-xl"></i>
             <span>Tableau de bord</span>
         </a>
 
@@ -24,10 +24,16 @@
             <span>Mes Restaurants</span>
         </a>
 
+        <a href="{{ route('reservations.index') }}" 
+           class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold transition-all group {{ request()->routeIs('reservations.*') ? 'bg-brand-50 text-brand-600 shadow-sm' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }}">
+            <i class="{{ request()->routeIs('reservations.*') ? 'ph-fill' : 'ph-bold' }} ph-calendar-check text-xl"></i>
+            <span>Réservations</span>
+        </a>
+
         <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider mt-8 mb-2">Compte</p>
 
-        <a href="{{ route('restaurant.profile') }}" 
-           class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold transition-all group {{ request()->routeIs('profile.edit') ? 'bg-brand-50 text-brand-600 shadow-sm' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }}">
+          <a href="{{ route('restaurant.profile') }}" 
+              class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold transition-all group {{ request()->routeIs('restaurant.profile') ? 'bg-brand-50 text-brand-600 shadow-sm' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }}">
             <i class="ph-bold ph-user text-xl"></i>
             <span>Mon Profil</span>
         </a>
