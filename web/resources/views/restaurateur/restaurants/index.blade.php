@@ -5,42 +5,73 @@
 @endsection
 
 @section('content')
-    <div class="mb-6 flex justify-between items-center">
-        <h2 class="text-xl font-bold text-gray-900">Liste de vos établissements</h2>
-        <a href="{{ route('restaurants.create') }}" class="bg-brand-500 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-brand-600 transition flex items-center gap-2">
-            <i class="ph-bold ph-plus"></i> Ajouter
-        </a>
+    <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900">Liste de vos établissements</h2>
+            <p class="text-sm text-gray-500">Gérez vos restaurants, statuts et informations.</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <button class="px-4 py-2 rounded-lg bg-gray-100 text-gray-600 text-sm font-semibold hover:bg-gray-200 transition">Tous</button>
+            <button class="px-4 py-2 rounded-lg bg-brand-50 text-brand-600 text-sm font-semibold">Actifs</button>
+            <a href="{{ route('restaurants.create') }}" class="bg-brand-500 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-brand-600 transition flex items-center gap-2">
+                <i class="ph-bold ph-plus"></i> Ajouter
+            </a>
+        </div>
     </div>
 
-    <div class="bg-white rounded-3xl shadow-card overflow-hidden border border-gray-100">
-        <table class="w-full text-left border-collapse">
-            <thead>
-                <tr class="bg-gray-50 border-b border-gray-100 text-xs uppercase text-gray-500 font-semibold tracking-wider">
-                    <th class="p-6">Nom</th>
-                    <th class="p-6">Adresse</th>
-                    <th class="p-6">Cuisine</th>
-                    <th class="p-6 text-right">Actions</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-100">
-                {{-- Example Row --}}
-                <tr class="hover:bg-gray-50/50 transition">
-                    <td class="p-6 font-bold text-gray-900">Le Petit Bistro</td>
-                    <td class="p-6 text-gray-500">12 Rue de la Paix, Paris</td>
-                    <td class="p-6 text-gray-500">Française</td>
-                    <td class="p-6 text-right space-x-2">
-                        <a href="{{ route('restaurants.edit', 1) }}" class="text-brand-500 hover:text-brand-600 font-bold text-sm">Éditer</a>
-                        <button class="text-red-500 hover:text-red-600 font-bold text-sm">Supprimer</button>
-                    </td>
-                </tr>
-                {{-- End Example Row --}}
-            </tbody>
-        </table>
-        
-        {{-- Empty State (if needed)
-        <div class="p-12 text-center text-gray-500">
-            Aucun restaurant trouvé.
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-3xl shadow-card border border-gray-100 overflow-hidden">
+            <div class="relative h-44">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Restaurant" class="w-full h-full object-cover">
+                <span class="absolute top-4 left-4 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200">Actif</span>
+            </div>
+            <div class="p-6">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Le Petit Bistro</h3>
+                        <p class="text-sm text-gray-500">Paris · Française</p>
+                    </div>
+                    <span class="text-sm text-gray-500">80 couverts</span>
+                </div>
+
+                <div class="mt-4 flex items-center gap-2 text-xs text-gray-500">
+                    <i class="ph ph-map-pin"></i>
+                    12 Rue de la Paix, Paris
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="{{ route('restaurants.show', 1) }}" class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-gray-200">Voir</a>
+                    <a href="{{ route('restaurants.edit', 1) }}" class="px-4 py-2 rounded-lg bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600">Éditer</a>
+                    <button class="px-4 py-2 rounded-lg bg-red-50 text-red-600 text-sm font-semibold hover:bg-red-100">Supprimer</button>
+                </div>
+            </div>
         </div>
-        --}}
+
+        <div class="bg-white rounded-3xl shadow-card border border-gray-100 overflow-hidden">
+            <div class="relative h-44">
+                <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80" alt="Restaurant" class="w-full h-full object-cover">
+                <span class="absolute top-4 left-4 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold border border-emerald-200">Actif</span>
+            </div>
+            <div class="p-6">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Casa Mia</h3>
+                        <p class="text-sm text-gray-500">Lyon · Italienne</p>
+                    </div>
+                    <span class="text-sm text-gray-500">65 couverts</span>
+                </div>
+
+                <div class="mt-4 flex items-center gap-2 text-xs text-gray-500">
+                    <i class="ph ph-map-pin"></i>
+                    8 Avenue Lumière, Lyon
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="{{ route('restaurants.show', 2) }}" class="px-4 py-2 rounded-lg bg-gray-100 text-gray-700 text-sm font-semibold hover:bg-gray-200">Voir</a>
+                    <a href="{{ route('restaurants.edit', 2) }}" class="px-4 py-2 rounded-lg bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600">Éditer</a>
+                    <button class="px-4 py-2 rounded-lg bg-red-50 text-red-600 text-sm font-semibold hover:bg-red-100">Supprimer</button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
