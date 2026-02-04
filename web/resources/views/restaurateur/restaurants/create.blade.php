@@ -18,8 +18,8 @@
                 </div>
                 
                 <div class="space-y-2">
-                    <label for="address" class="block text-sm font-medium text-gray-700">Adresse complète</label>
-                    <input type="text" name="address" id="address" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm" required>
+                    <label for="city" class="block text-sm font-medium text-gray-700">Ville / localisation</label>
+                    <input type="text" name="city" id="city" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm" required>
                 </div>
 
                 <div class="space-y-2">
@@ -33,14 +33,37 @@
                 </div>
 
                 <div class="space-y-2">
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Numéro de téléphone</label>
-                    <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm">
+                    <label for="capacity" class="block text-sm font-medium text-gray-700">Capacité</label>
+                    <input type="number" name="capacity" id="capacity" min="1" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm" required>
                 </div>
             </div>
 
             <div class="mt-6 space-y-2">
                 <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                 <textarea name="description" id="description" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm"></textarea>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label for="hours" class="block text-sm font-medium text-gray-700">Horaires</label>
+                    <input type="text" name="hours" id="hours" placeholder="Ex: Lun-Dim 12:00-23:00" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm">
+                </div>
+                <div class="space-y-2">
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone</label>
+                    <input type="tel" name="phone" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm">
+                </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label for="photos" class="block text-sm font-medium text-gray-700">Photos</label>
+                    <input type="file" name="photos[]" id="photos" multiple class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm">
+                    <p class="text-xs text-gray-400">Formats recommandés : JPG, PNG.</p>
+                </div>
+                <div class="space-y-2">
+                    <label for="menus" class="block text-sm font-medium text-gray-700">Menus</label>
+                    <textarea name="menus" id="menus" rows="4" placeholder="Ex: Menu Déjeuner, Menu Dégustation" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm"></textarea>
+                </div>
             </div>
 
             <div class="mt-8 flex justify-end gap-3">
