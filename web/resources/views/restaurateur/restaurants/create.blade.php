@@ -54,15 +54,11 @@
                 </div>
             </div>
 
-            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="mt-6">
                 <div class="space-y-2">
                     <label for="photos" class="block text-sm font-medium text-gray-700">Photos</label>
                     <input type="file" name="photos[]" id="photos" multiple class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm">
                     <p class="text-xs text-gray-400">Formats recommandés : JPG, PNG.</p>
-                </div>
-                <div class="space-y-2">
-                    <label for="menus" class="block text-sm font-medium text-gray-700">Menus</label>
-                    <textarea name="menus" id="menus" rows="4" placeholder="Ex: Menu Déjeuner, Menu Dégustation" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 shadow-sm"></textarea>
                 </div>
             </div>
 
