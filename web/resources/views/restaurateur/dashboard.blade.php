@@ -21,6 +21,27 @@
             </div>
         </div>
 
+        <div class="bg-white p-6 rounded-3xl shadow-card flex items-center gap-5 border border-gray-100">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl">
+                <i class="ph-fill ph-calendar-check"></i>
+            </div>
+            <div>
+                <p class="text-gray-500 text-sm font-medium">Réservations</p>
+                <h3 class="text-3xl font-bold text-gray-900">24</h3>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl shadow-card flex items-center gap-5 border border-gray-100">
+            <div class="w-14 h-14 rounded-2xl bg-gray-100 text-gray-600 flex items-center justify-center text-2xl">
+                <i class="ph-fill ph-shield-check"></i>
+            </div>
+            <div>
+                <p class="text-gray-500 text-sm font-medium">Statut</p>
+                <h3 class="text-3xl font-bold text-gray-900">2 actifs</h3>
+                <p class="text-xs text-gray-400">1 supprimé</p>
+            </div>
+        </div>
+
         <div class="bg-brand-500 p-6 rounded-3xl shadow-card flex items-center justify-between text-white relative overflow-hidden group cursor-pointer">
             <div class="relative z-10">
                 <p class="text-white/80 text-sm font-medium mb-1">Développer votre activité</p>
@@ -31,6 +52,32 @@
             </a>
             <i class="ph-fill ph-fork-knife absolute -bottom-4 -right-4 text-8xl text-white/10 group-hover:scale-110 transition duration-500"></i>
         </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+        <a href="{{ route('restaurants.create') }}" class="bg-white rounded-3xl border border-gray-100 p-6 shadow-card hover:border-brand-500 transition">
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                <i class="ph ph-plus-circle"></i>
+            </div>
+            <h3 class="mt-4 font-bold text-gray-900">Ajouter un restaurant</h3>
+            <p class="text-sm text-gray-500 mt-1">Publiez un nouvel établissement</p>
+        </a>
+
+        <a href="{{ route('restaurants.index') }}" class="bg-white rounded-3xl border border-gray-100 p-6 shadow-card hover:border-brand-500 transition">
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                <i class="ph ph-storefront"></i>
+            </div>
+            <h3 class="mt-4 font-bold text-gray-900">Gérer mes restaurants</h3>
+            <p class="text-sm text-gray-500 mt-1">Liste, statut, édition</p>
+        </a>
+
+        <a href="{{ route('restaurant.profile') }}" class="bg-white rounded-3xl border border-gray-100 p-6 shadow-card hover:border-brand-500 transition">
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                <i class="ph ph-user"></i>
+            </div>
+            <h3 class="mt-4 font-bold text-gray-900">Modifier mon profil</h3>
+            <p class="text-sm text-gray-500 mt-1">Informations personnelles</p>
+        </a>
     </div>
 
     <div class="flex items-center justify-between mb-6">
