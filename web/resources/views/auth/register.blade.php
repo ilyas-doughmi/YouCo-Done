@@ -1,4 +1,6 @@
-<x-guest-layout>
+@extends('layouts.guest')
+
+@section('content')
     <div class="flex min-h-screen w-full">
 
         <!-- Left Side: Image & Branding -->
@@ -31,42 +33,50 @@
 
                     <!-- Name -->
                     <div>
-                        <x-input-label for="name" :value="__('Nom complet')" class="text-gray-700 font-semibold" />
-                        <x-text-input id="name" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200" 
-                                      type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="John Doe" />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        <label for="name" class="block font-medium text-sm text-gray-700 font-semibold">{{ __('Nom complet') }}</label>
+                        <input id="name" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200" 
+                                      type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" placeholder="John Doe" />
+                        @error('name')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <!-- Email Address -->
                     <div>
-                        <x-input-label for="email" :value="__('Email')" class="text-gray-700 font-semibold" />
-                        <x-text-input id="email" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200" 
-                                      type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="exemple@email.com" />
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <label for="email" class="block font-medium text-sm text-gray-700 font-semibold">{{ __('Email') }}</label>
+                        <input id="email" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200" 
+                                      type="email" name="email" value="{{ old('email') }}" required autocomplete="username" placeholder="exemple@email.com" />
+                        @error('email')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <!-- Password -->
                     <div>
-                        <x-input-label for="password" :value="__('Mot de passe')" class="text-gray-700 font-semibold" />
-                        <x-text-input id="password" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200"
+                        <label for="password" class="block font-medium text-sm text-gray-700 font-semibold">{{ __('Mot de passe') }}</label>
+                        <input id="password" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200"
                                         type="password"
                                         name="password"
                                         required autocomplete="new-password" placeholder="••••••••" />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        @error('password')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <!-- Confirm Password -->
                     <div>
-                        <x-input-label for="password_confirmation" :value="__('Confirmer le mot de passe')" class="text-gray-700 font-semibold" />
-                        <x-text-input id="password_confirmation" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200"
+                        <label for="password_confirmation" class="block font-medium text-sm text-gray-700 font-semibold">{{ __('Confirmer le mot de passe') }}</label>
+                        <input id="password_confirmation" class="block mt-2 w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-500 focus:ring-brand-500 transition-all duration-200"
                                         type="password"
                                         name="password_confirmation" required autocomplete="new-password" placeholder="••••••••" />
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                        @error('password_confirmation')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <!-- Role Selection -->
                     <div>
-                        <x-input-label for="role" :value="__('Je rejoins en tant que...')" class="text-gray-700 font-semibold mb-3 block" />
+                        <label for="role" class="block font-medium text-sm text-gray-700 font-semibold mb-3">{{ __('Je rejoins en tant que...') }}</label>
                         
                         <div class="grid grid-cols-2 gap-4">
                             <label class="relative flex flex-col items-center p-4 border-2 border-gray-100 rounded-2xl cursor-pointer hover:bg-orange-50 hover:border-brand-200 transition-all duration-200 has-[:checked]:border-brand-500 has-[:checked]:bg-orange-50/50 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
@@ -84,7 +94,9 @@
                             </label>
                         </div>
                         
-                        <x-input-error :messages="$errors->get('role')" class="mt-2" />
+                        @error('role')
+                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="pt-2">
@@ -96,4 +108,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+@endsection
