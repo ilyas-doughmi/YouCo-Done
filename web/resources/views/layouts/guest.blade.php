@@ -43,6 +43,6 @@
         </style>
     </head>
     <body class="font-sans text-gray-900 antialiased bg-white">
-        {{ $slot }}
+        @yield('content')
     </body>
 </html>
