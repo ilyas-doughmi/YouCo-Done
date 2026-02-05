@@ -21,10 +21,21 @@ Route::middleware('auth')->group(function () {
 });
 
     Route::get('/restaurant', function(){
-        return view('restaurateur.dashboard');
-    })->name('restaurateur.dashboard');
+        $userId = auth()->id();
+        $total = \App\Models\restaurant::where('userId', $userId)->where('isDeleted', false)->count();
+        $active = \App\Models\restaurant::where('userId', $userId)->where('isActive', true)->where('isDeleted', false)->count();
+        $inactive = \App\Models\restaurant::where('userId', $userId)->where('isDeleted', false)->where('isActive', false)->count();
+        $stats = [
+            'total' => $total,
+            'active' => $active,
+            'inactive' => $inactive,
+        ];
+        return view('restaurateur.dashboard', compact('stats'));
+    })->middleware(['auth', 'verified'])->name('restaurateur.dashboard');
 
     Route::resource('restaurants', App\Http\Controllers\RestaurantController::class);
+    Route::post('/restaurants/{restaurant}/menus', [App\Http\Controllers\RestaurantController::class, 'storeMenu'])->name('restaurants.menus.store');
+    Route::post('/menus/{menu}/plat', [App\Http\Controllers\RestaurantController::class, 'storePlat'])->name('menus.plat.store');
     Route::get('/reservations', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservations.index');
 
 require __DIR__.'/auth.php';
