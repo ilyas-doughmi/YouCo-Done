@@ -30,7 +30,6 @@
                         <option value="italienne">Italienne</option>
                         <option value="francaise">Française</option>
                         <option value="japonaise">Japonaise</option>
-                        <!-- Add options dynamically later -->
                     </select>
                 </div>
 
@@ -62,7 +61,7 @@
                     <div class="text-sm text-gray-600">Choisissez le nombre de photos (1 à 3 max).</div>
                     <div class="flex items-center gap-3">
                         <label for="photo_count" class="text-sm font-semibold text-gray-700">Nombre de photos</label>
-                        <select id="photo_count" class="px-3 py-2 rounded-lg border border-gray-200 text-sm">
+                        <select name="photos" id="photo_count" class="px-3 py-2 rounded-lg border border-gray-200 text-sm">
                             <option value="1" selected>1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
