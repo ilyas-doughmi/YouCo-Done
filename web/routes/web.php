@@ -3,14 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
+use App\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,6 +38,12 @@ Route::middleware(['auth','role:restaurateur'])->group(function(){
     Route::post('/menus/{menu}/plat', [App\Http\Controllers\RestaurantController::class, 'storePlat'])->name('menus.plat.store');
     Route::get('/reservations', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservations.index');
 
+});
+
+Route::middleware(['auth','role:admin'])->prefix('admin')->name('admin.')->group(function(){
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/restaurants', [AdminController::class, 'index'])->name('restaurants.index');
+    Route::delete('/restaurants/{restaurant}', [AdminController::class, 'destroy'])->name('restaurants.destroy');
 });
 
 
