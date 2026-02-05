@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('prix');
-            $table->foreignId('menuId')->constrained('restaurant');
+            $table->foreignId('menuId')->constrained('menu');
             $table->timestamps();
         });
     }
