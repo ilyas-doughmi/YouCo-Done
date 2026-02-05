@@ -80,14 +80,14 @@
                         
                         <div class="grid grid-cols-2 gap-4">
                             <label class="relative flex flex-col items-center p-4 border-2 border-gray-100 rounded-2xl cursor-pointer hover:bg-orange-50 hover:border-brand-200 transition-all duration-200 has-[:checked]:border-brand-500 has-[:checked]:bg-orange-50/50 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
-                                <input type="radio" name="role" value="3" class="sr-only" required {{ old('role') == 'client' ? 'checked' : '' }}>
+                                <input type="radio" name="role" value="client" class="sr-only" required {{ old('role') == 'client' ? 'checked' : '' }}>
                                 <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl shadow-sm mb-3">😋</div>
                                 <span class="text-sm font-bold text-gray-900">Client</span>
                                 <span class="text-xs text-gray-500 text-center mt-1">Je veux découvrir des plats</span>
                             </label>
 
                             <label class="relative flex flex-col items-center p-4 border-2 border-gray-100 rounded-2xl cursor-pointer hover:bg-orange-50 hover:border-brand-200 transition-all duration-200 has-[:checked]:border-brand-500 has-[:checked]:bg-orange-50/50 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
-                                <input type="radio" name="role" value="2" class="sr-only" {{ old('role') == 'restaurateur' ? 'checked' : '' }}>
+                                <input type="radio" name="role" value="restaurateur" class="sr-only" {{ old('role') == 'restaurateur' ? 'checked' : '' }}>
                                 <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl shadow-sm mb-3">👨‍🍳</div>
                                 <span class="text-sm font-bold text-gray-900">Restaurateur</span>
                                 <span class="text-xs text-gray-500 text-center mt-1">Je gère mon établissement</span>
