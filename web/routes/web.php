@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RestaurantController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
     })->name('restaurant.profile');
 });
 
+Route::middleware(['auth','role:restaurateur'])->group(function(){
     Route::get('/restaurant', function(){
         $userId = auth()->id();
         $total = \App\Models\restaurant::where('userId', $userId)->where('isDeleted', false)->count();
@@ -37,5 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/restaurants/{restaurant}/menus', [App\Http\Controllers\RestaurantController::class, 'storeMenu'])->name('restaurants.menus.store');
     Route::post('/menus/{menu}/plat', [App\Http\Controllers\RestaurantController::class, 'storePlat'])->name('menus.plat.store');
     Route::get('/reservations', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservations.index');
+
+});
+
 
 require __DIR__.'/auth.php';
