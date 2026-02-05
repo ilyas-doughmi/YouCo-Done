@@ -58,17 +58,24 @@
                     </div>
                     <span class="text-2xl font-bold tracking-tight">YouCo'<span class="text-brand-500">Done</span>.</span>
                 </a>
-
+                @role('client')
                 <div class="hidden md:flex gap-10 text-sm font-semibold text-gray-500">
                     <a href="#" class="text-gray-900 hover:text-brand-500 transition">Explorer</a>
                     <a href="#" class="hover:text-brand-500 transition">Villes</a>
                     <a href="#" class="hover:text-brand-500 transition">Restaurateurs</a>
                 </div>
+                @endrole
 
                 <div class="flex items-center gap-4">
                     @auth
+                    @role('admin')
                         <a href="{{ url('/dashboard') }}" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Dashboard</a>
-                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                    @endrole
+                    @role('restaurateur')
+                        <a href="{{ url('/restaurant') }}" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Dashboard</a>
+                        
+                    @endrole
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
                             <button type="submit" class="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brand-500 transition shadow-lg shadow-gray-900/20 hover:shadow-brand-500/30">
                                 Déconnexion
                             </button>
