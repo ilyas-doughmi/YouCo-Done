@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Image;
 use App\Models\User;
+use App\Models\menu;
 
 class restaurant extends Model
 {
@@ -16,6 +17,7 @@ class restaurant extends Model
         'categorie',
         'localisation',
         'capacite',
+        'image',
         'isActive',
         'isDeleted',
     ];
@@ -30,6 +32,11 @@ class restaurant extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
     
+    public function menus()
+    {
+        return $this->hasMany(menu::class, 'restaurantId');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'userId');
