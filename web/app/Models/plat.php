@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Image;
+use App\Models\menu;
 
 class plat extends Model
 {
+    protected $table = 'plat';
     protected $fillable = [
         'name',
         'description',
@@ -16,5 +19,10 @@ class plat extends Model
     public function images()
     {
         return $this->morphMany(Image::class,'imageable');
+    }
+
+    public function menu()
+    {
+        return $this->belongsTo(menu::class, 'menuId');
     }
 }
