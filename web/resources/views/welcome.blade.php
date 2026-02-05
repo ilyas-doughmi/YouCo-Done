@@ -69,7 +69,7 @@
                 <div class="flex items-center gap-4">
                     @auth
                     @role('admin')
-                        <a href="{{ url('/dashboard') }}" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Dashboard</a>
+                        <a href="{{ url('/admin') }}" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Dashboard</a>
                     @endrole
                     @role('restaurateur')
                         <a href="{{ url('/restaurant') }}" class="hidden sm:block text-sm font-semibold hover:text-brand-500 transition">Dashboard</a>
