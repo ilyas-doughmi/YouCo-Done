@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('description');
             $table->foreignId('userId')->constrained('users');
             $table->string('categorie');
-            $table->string('image');
             $table->string('localisation');
             $table->integer('capacite');
             $table->boolean('isActive');
