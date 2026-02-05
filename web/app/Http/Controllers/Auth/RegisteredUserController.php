@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Permission;
 
 class RegisteredUserController extends Controller
 {
@@ -39,12 +40,17 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'roleId' => $request->role,
         ]);
-
+        $user->assignRole($request->role);
         event(new Registered($user));
 
+        
         Auth::login($user);
+
+        if($user->hasRole('restaurateur')){
+            return redirect('/restaurant');
+        }
+        
 
         return redirect('/');
     }
