@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\restaurant;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable,HasRoles;
 
     protected $fillable = [
         'name',
         'email',
         'password',
-        'roleId',
     ];
 
     protected $hidden = [
